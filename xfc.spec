@@ -1,17 +1,16 @@
-%define oname xfc
 %define major 1
 %define apiversion 4.3
 %define libname %mklibname XFC- %{apiversion} %{major}
 %define develname %mklibname XFC -d
 
 Summary:	The Xfce foundation classes
-Name:		xfce-xfc
+Name:		xfc
 Version:	4.3.2
 Release:	%mkrel 3
-License:	GPL
+License:	LGPLv2+
 Group:		Development/C++
 Url:		http://xfc.xfce.org
-Source0:	http://xfc.xfce.org/download/4.3.2/src/%{oname}-%{version}.tar.bz2
+Source0:	http://xfc.xfce.org/download/4.3.2/src/%{name}-%{version}.tar.bz2
 Patch0:		xfc-4.3.2-selection.patch
 BuildRequires:	libsigc++2.0-devel
 BuildRequires:	libatk-devel
@@ -19,6 +18,8 @@ BuildRequires:	libpango-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libgtksourceview-devel
 BuildRequires:	chrpath
+Provides:	xfce-xfc
+Obsoletes:	xfce-xfc
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libname}-devel = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -54,15 +55,15 @@ Xfce foundation classes libraries.
 Summary:	Xfce foundation classes headers
 Group:		Development/C++
 Requires:	%{name} = %{version}-%{release}
-Provides:	xfce-xfc-devel
-Provides:	libXFC-devel
+Provides:	xfc-devel = %{version}-%{release}
+Provides:	libXFC-devel = %{version}-%{release}
 Obsoletes:	%mklibname XFC- %{apiversion} 1 -d
 
 %description -n %{develname}
 Xfce foundation classes headers.
 
 %prep
-%setup -qn %{oname}-%{version}
+%setup -q
 %patch0 -p1 -b .selection
 
 %build
@@ -88,7 +89,6 @@ chrpath -d %{buildroot}%{_bindir}/xfc-demo
 
 %files -n demo
 %defattr(-,root,root)
-%doc AUTHORS README NEWS COPYING TODO ChangeLog
 %{_bindir}/xfc-demo
 %{_datadir}/xfce4/xfc/demos/
 
@@ -98,7 +98,7 @@ chrpath -d %{buildroot}%{_bindir}/xfc-demo
 
 %files -n %{develname}
 %defattr(-,root,root)
-%doc AUTHORS README NEWS COPYING TODO ChangeLog
+%doc AUTHORS README NEWS TODO ChangeLog
 %doc %{_docdir}/xfc-4.3/*
 %{_includedir}/xfce4/xfc
 %{_libdir}/*.so
