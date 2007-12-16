@@ -6,7 +6,7 @@
 Summary:	The Xfce foundation classes
 Name:		xfc
 Version:	4.3.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	LGPLv2+
 Group:		Development/C++
 Url:		http://xfc.xfce.org
@@ -37,11 +37,12 @@ of the Xfce project, and like Xfce it's lightweight, fast and easy to use.
 
 Example files can be found in %{name}-demo package.
 
-%package -n demo
+%package demo
 Summary:	Xfce foundation classes example files
 Group:		Development/Other
+Obsoletes:	demo >= 4.3.2
 
-%description -n demo
+%description demo
 Xfce foundation classes example files.
 
 %package -n %{libname}
@@ -87,7 +88,7 @@ chrpath -d %{buildroot}%{_bindir}/xfc-demo
 
 %files
 
-%files -n demo
+%files demo
 %defattr(-,root,root)
 %{_bindir}/xfc-demo
 %{_datadir}/xfce4/xfc/demos/
