@@ -22,6 +22,7 @@ Provides:	xfce-xfc
 Obsoletes:	xfce-xfc
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libname}-devel = %{version}-%{release}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The Xfce Foundation Classes is a set of integrated C++ classes 
