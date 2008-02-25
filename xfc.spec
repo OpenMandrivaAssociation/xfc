@@ -6,7 +6,7 @@
 Summary:	The Xfce foundation classes
 Name:		xfc
 Version:	4.3.2
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	LGPLv2+
 Group:		Development/C++
 Url:		http://xfc.xfce.org
@@ -21,7 +21,8 @@ BuildRequires:	chrpath
 Provides:	xfce-xfc
 Obsoletes:	xfce-xfc
 Requires:	%{libname} = %{version}-%{release}
-Requires:	%{libname}-devel = %{version}-%{release}
+Requires:	%{develname} = %{version}-%{release}
+Requires:	%{name}-demo = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -37,12 +38,12 @@ of the Xfce project, and like Xfce it's lightweight, fast and easy to use.
 
 Example files can be found in %{name}-demo package.
 
-%package demo
+%package -n demo
 Summary:	Xfce foundation classes example files
 Group:		Development/Other
 Obsoletes:	demo >= 4.3.2
 
-%description demo
+%description -n  demo
 Xfce foundation classes example files.
 
 %package -n %{libname}
@@ -58,7 +59,6 @@ Group:		Development/C++
 Requires:	%{name} = %{version}-%{release}
 Provides:	xfc-devel = %{version}-%{release}
 Provides:	libXFC-devel = %{version}-%{release}
-Obsoletes:	%mklibname XFC- %{apiversion} 1 -d
 
 %description -n %{develname}
 Xfce foundation classes headers.
@@ -88,10 +88,11 @@ chrpath -d %{buildroot}%{_bindir}/xfc-demo
 
 %files
 
-%files demo
+%files -n demo
 %defattr(-,root,root)
+%dir %{_datadir}/xfce4/xfc
 %{_bindir}/xfc-demo
-%{_datadir}/xfce4/xfc/demos/
+%{_datadir}/xfce4/xfc/demos
 
 %files -n %{libname}
 %defattr(-,root,root)
