@@ -1,0 +1,24 @@
+Index: xfc-4.6.0/docs/reference/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/docs/reference/CMakeLists.txt
++++ xfc-4.6.0/docs/reference/CMakeLists.txt
+@@ -3,13 +3,15 @@ INCLUDE( FindDoxygen )
+ CONFIGURE_FILE( Doxyfile.in Doxyfile )
+ CONFIGURE_FILE( xfc_footer.html.in xfc_footer.html )
+ 
++FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/xfc_header.html DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
++
+ ADD_CUSTOM_TARGET(api-docs ALL ${DOXYGEN_EXECUTABLE} Doxyfile) 
+ 
+-INSTALL( DIRECTORY html DESTINATION ${docs_dest}/reference/html
++INSTALL( DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html DESTINATION ${docs_dest}/reference/html
+          PATTERN ".svn" EXCLUDE )
+ 
+ INSTALL( FILES 
+-    doxygen.css 
+-    xfc_footer.html
+-    xfc_header.html
++    ${CMAKE_CURRENT_SOURCE_DIR}/doxygen.css
++    ${CMAKE_CURRENT_BINARY_DIR}/xfc_footer.html
++    ${CMAKE_CURRENT_BINARY_DIR}/xfc_header.html
+     DESTINATION ${docs_dest}/reference/html)

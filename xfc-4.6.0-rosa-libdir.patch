@@ -1,0 +1,181 @@
+Index: xfc-4.6.0/core/xfccore.pc.in
+===================================================================
+--- xfc-4.6.0.orig/core/xfccore.pc.in
++++ xfc-4.6.0/core/xfccore.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${prefix}/lib
++libdir=@CMAKE_INSTALL_LIBDIR@
+ includedir=${prefix}/include
+ 
+ Name: Xfc-Core
+Index: xfc-4.6.0/de/xfcde.pc.in
+===================================================================
+--- xfc-4.6.0.orig/de/xfcde.pc.in
++++ xfc-4.6.0/de/xfcde.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${prefix}/lib
++libdir=@CMAKE_INSTALL_LIBDIR@
+ includedir=${prefix}/include
+ 
+ Name: Xfc-DesktopEnvironment
+Index: xfc-4.6.0/glade/xfcglade.pc.in
+===================================================================
+--- xfc-4.6.0.orig/glade/xfcglade.pc.in
++++ xfc-4.6.0/glade/xfcglade.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${prefix}/lib
++libdir=@CMAKE_INSTALL_LIBDIR@
+ includedir=${prefix}/include
+ 
+ Name: Xfc-Glade
+Index: xfc-4.6.0/ui/xfcui.pc.in
+===================================================================
+--- xfc-4.6.0.orig/ui/xfcui.pc.in
++++ xfc-4.6.0/ui/xfcui.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${prefix}/lib
++libdir=@CMAKE_INSTALL_LIBDIR@
+ includedir=${prefix}/include
+ 
+ Name: XFC UI
+Index: xfc-4.6.0/core/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/core/CMakeLists.txt
++++ xfc-4.6.0/core/CMakeLists.txt
+@@ -4,6 +4,6 @@ ADD_SUBDIRECTORY( xfc )
+ 
+ CONFIGURE_FILE( xfccore.pc.in xfccore-${XFC_VERSION}.pc @ONLY )
+ 
+-INSTALL( FILES xfccore-${XFC_VERSION}.pc 
+-        DESTINATION lib/pkgconfig )
++INSTALL( FILES ${CMAKE_CURRENT_BINARY_DIR}/xfccore-${XFC_VERSION}.pc 
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
+ 
+Index: xfc-4.6.0/de/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/de/CMakeLists.txt
++++ xfc-4.6.0/de/CMakeLists.txt
+@@ -4,5 +4,5 @@ ADD_SUBDIRECTORY( xfc )
+ 
+ CONFIGURE_FILE( xfcde.pc.in xfcde-${XFC_VERSION}.pc @ONLY )
+ 
+-INSTALL( FILES xfcde-${XFC_VERSION}.pc 
+-	DESTINATION lib/pkgconfig )
++INSTALL( FILES ${CMAKE_CURRENT_BINARY_DIR}/xfcde-${XFC_VERSION}.pc 
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
+Index: xfc-4.6.0/glade/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/glade/CMakeLists.txt
++++ xfc-4.6.0/glade/CMakeLists.txt
+@@ -4,6 +4,6 @@ ADD_SUBDIRECTORY( xfc )
+ 
+ CONFIGURE_FILE( xfcglade.pc.in xfcglade-${XFC_VERSION}.pc @ONLY )
+ 
+-INSTALL( FILES xfcglade-${XFC_VERSION}.pc 
+-	DESTINATION lib/pkgconfig )
++INSTALL( FILES ${CMAKE_CURRENT_BINARY_DIR}/xfcglade-${XFC_VERSION}.pc 
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
+ 
+Index: xfc-4.6.0/sourceview/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/sourceview/CMakeLists.txt
++++ xfc-4.6.0/sourceview/CMakeLists.txt
+@@ -4,6 +4,6 @@ ADD_SUBDIRECTORY( xfc )
+ 
+ CONFIGURE_FILE( xfcsourceview.pc.in xfcsourceview-${XFC_VERSION}.pc @ONLY )
+ 
+-INSTALL( FILES xfcsourceview-${XFC_VERSION}.pc 
+-	DESTINATION lib/pkgconfig )
++INSTALL( FILES ${CMAKE_CURRENT_BINARY_DIR}/xfcsourceview-${XFC_VERSION}.pc 
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
+ 
+Index: xfc-4.6.0/ui/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/ui/CMakeLists.txt
++++ xfc-4.6.0/ui/CMakeLists.txt
+@@ -4,5 +4,5 @@ ADD_SUBDIRECTORY( xfc )
+ 
+ CONFIGURE_FILE( xfcui.pc.in xfcui-${XFC_VERSION}.pc @ONLY )
+ 
+-INSTALL( FILES xfcui-${XFC_VERSION}.pc 
+-	DESTINATION lib/pkgconfig )
++INSTALL( FILES ${CMAKE_CURRENT_BINARY_DIR}/xfcui-${XFC_VERSION}.pc 
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
+Index: xfc-4.6.0/core/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/CMakeLists.txt
++++ xfc-4.6.0/core/xfc/CMakeLists.txt
+@@ -14,7 +14,7 @@ SET_TARGET_PROPERTIES( xfc_core PROPERTI
+ 
+ INSTALL(TARGETS xfc_core
+     RUNTIME DESTINATION bin
+-    LIBRARY DESTINATION lib )
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} )
+ 
+ INSTALL( FILES
+  convert.hh
+Index: xfc-4.6.0/demos/xfc-demo/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/demos/xfc-demo/CMakeLists.txt
++++ xfc-4.6.0/demos/xfc-demo/CMakeLists.txt
+@@ -42,4 +42,4 @@ INSTALL( FILES ${demos} ${images}
+ 
+ INSTALL( TARGETS xfc-demo 
+     RUNTIME DESTINATION bin 
+-    LIBRARY DESTINATION lib)
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+Index: xfc-4.6.0/de/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/de/xfc/CMakeLists.txt
++++ xfc-4.6.0/de/xfc/CMakeLists.txt
+@@ -12,4 +12,4 @@ SET_TARGET_PROPERTIES( xfc_de PROPERTIES
+ 
+ INSTALL(TARGETS xfc_de
+     RUNTIME DESTINATION bin
+-    LIBRARY DESTINATION lib )
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} )
+Index: xfc-4.6.0/glade/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/glade/xfc/CMakeLists.txt
++++ xfc-4.6.0/glade/xfc/CMakeLists.txt
+@@ -13,7 +13,7 @@ SET_TARGET_PROPERTIES( xfc_glade PROPERT
+ 
+ INSTALL(TARGETS xfc_glade
+     RUNTIME DESTINATION bin
+-    LIBRARY DESTINATION lib )
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} )
+ 
+ INSTALL( FILES 
+         xfcglade.hh
+Index: xfc-4.6.0/sourceview/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/sourceview/xfc/CMakeLists.txt
++++ xfc-4.6.0/sourceview/xfc/CMakeLists.txt
+@@ -12,5 +12,5 @@ SET_TARGET_PROPERTIES( xfc_sourceview PR
+ 
+ INSTALL(TARGETS xfc_sourceview
+     RUNTIME DESTINATION bin
+-    LIBRARY DESTINATION lib )
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} )
+ 
+Index: xfc-4.6.0/ui/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/ui/xfc/CMakeLists.txt
++++ xfc-4.6.0/ui/xfc/CMakeLists.txt
+@@ -19,7 +19,7 @@ CONFIGURE_FILE( config.h.in ${CMAKE_CURR
+ 
+ INSTALL(TARGETS xfc_ui
+     RUNTIME DESTINATION bin
+-    LIBRARY DESTINATION lib )
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} )
+ 
+ INSTALL( FILES
+  main.hh 

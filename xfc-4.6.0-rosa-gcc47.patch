@@ -1,0 +1,28 @@
+Index: xfc-4.6.0/core/xfc/glib/fileutils.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/fileutils.cc
++++ xfc-4.6.0/core/xfc/glib/fileutils.cc
+@@ -23,9 +23,7 @@
+ #include <glib.h>
+ #include <xfc-config.h>
+ 
+-#ifdef HAVE_UNISTD_H
+ #include <unistd.h>
+-#endif
+ 
+ #ifdef G_OS_WIN32
+ #include <io.h>
+Index: xfc-4.6.0/examples/core/mainloop/mainloop.cc
+===================================================================
+--- xfc-4.6.0.orig/examples/core/mainloop/mainloop.cc
++++ xfc-4.6.0/examples/core/mainloop/mainloop.cc
+@@ -20,9 +20,7 @@
+ 
+ #include <xfc-config.h>
+ 
+-#ifdef HAVE_UNISTD_H
+ #include <unistd.h>
+-#endif
+ 
+ #ifdef G_OS_WIN32
+ #include <fcntl.h> // For _O_BINARY used by pipe() macro

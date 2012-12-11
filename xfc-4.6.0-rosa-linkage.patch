@@ -1,0 +1,13 @@
+Index: xfc-4.6.0/de/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/de/xfc/CMakeLists.txt
++++ xfc-4.6.0/de/xfc/CMakeLists.txt
+@@ -7,7 +7,7 @@ INCLUDE_DIRECTORIES( ${XFC_DE_SOURCE_DIR
+ 
+ ADD_LIBRARY( xfc_de SHARED main.cc ${utils_src} ${ui_src})
+ 
+-TARGET_LINK_LIBRARIES( xfc_de ${XFCE_UTILS_LIBRARIES} ${XFCE_CONF_LIBRARIES} ${XFCE_UI_LIBARIES})
++TARGET_LINK_LIBRARIES( xfc_de ${XFCE_UTILS_LIBRARIES} ${XFCE_CONF_LIBRARIES} ${XFCE_UI_LIBARIES} xfc_core)
+ SET_TARGET_PROPERTIES( xfc_de PROPERTIES VERSION ${XFC_VERSION} SOVERSION ${XFC_MAJOR_VERSION} )
+ 
+ INSTALL(TARGETS xfc_de

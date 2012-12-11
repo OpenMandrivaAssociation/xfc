@@ -1,0 +1,94 @@
+Index: xfc-4.6.0/core/xfc/glib/error.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/error.cc
++++ xfc-4.6.0/core/xfc/glib/error.cc
+@@ -112,7 +112,7 @@ G::Error::set(GQuark domain, int code, c
+ {
+ 	if (error_)
+ 		clear();
+-	g_set_error(&error_, domain, code, message.c_str());
++	g_set_error(&error_, domain, code, "%s", message.c_str());
+ }
+ 
+ void
+Index: xfc-4.6.0/core/xfc/glib/markup.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/markup.cc
++++ xfc-4.6.0/core/xfc/glib/markup.cc
+@@ -79,7 +79,7 @@ MarkupParserClass::start_element_proxy(G
+ 	G::Error tmp_error;
+ 	parser->on_start_element(tmp_context, tmp_element_name, attributes, tmp_error);
+ 	if (tmp_error.get())
+-		g_set_error(error, tmp_error.domain(), tmp_error.code(), tmp_error.message());
++		g_set_error(error, tmp_error.domain(), tmp_error.code(), "%s", tmp_error.message());
+ }
+ 
+ void
+@@ -92,7 +92,7 @@ MarkupParserClass::end_element_proxy(GMa
+ 	G::Error tmp_error;
+ 	parser->on_end_element(tmp_context, tmp_element_name, tmp_error);
+ 	if (tmp_error.get())
+-		g_set_error(error, tmp_error.domain(), tmp_error.code(), tmp_error.message());
++		g_set_error(error, tmp_error.domain(), tmp_error.code(), "%s", tmp_error.message());
+ }
+ 
+ void
+@@ -105,7 +105,7 @@ MarkupParserClass::text_proxy(GMarkupPar
+ 	G::Error tmp_error;
+ 	parser->on_text(tmp_context, tmp_text, tmp_error);
+ 	if (tmp_error.get())
+-		g_set_error(error, tmp_error.domain(), tmp_error.code(), tmp_error.message());
++		g_set_error(error, tmp_error.domain(), tmp_error.code(), "%s", tmp_error.message());
+ }
+ 
+ void
+@@ -118,7 +118,7 @@ MarkupParserClass::passthrough_proxy(GMa
+ 	G::Error tmp_error;
+ 	parser->on_passthrough(tmp_context, text, tmp_error);
+ 	if (tmp_error.get())
+-		g_set_error(error, tmp_error.domain(), tmp_error.code(), tmp_error.message());
++		g_set_error(error, tmp_error.domain(), tmp_error.code(), "%s", tmp_error.message());
+ }
+ 
+ void
+Index: xfc-4.6.0/ui/xfc/gtk/inline/messagedialog.inl
+===================================================================
+--- xfc-4.6.0.orig/ui/xfc/gtk/inline/messagedialog.inl
++++ xfc-4.6.0/ui/xfc/gtk/inline/messagedialog.inl
+@@ -38,12 +38,12 @@ Xfc::Gtk::MessageDialog::set_markup(cons
+ inline void 
+ Xfc::Gtk::MessageDialog::set_secondary_text(const char *message)
+ {
+-	gtk_message_dialog_format_secondary_text(gtk_message_dialog(), message);
++	gtk_message_dialog_format_secondary_text(gtk_message_dialog(), "%s", message);
+ }
+ 	
+ inline void 
+ Xfc::Gtk::MessageDialog::set_secondary_markup(const char *message)
+ {
+-	gtk_message_dialog_format_secondary_markup(gtk_message_dialog(), message);
++	gtk_message_dialog_format_secondary_markup(gtk_message_dialog(), "%s", message);
+ }
+ 
+Index: xfc-4.6.0/ui/xfc/gtk/messagedialog.cc
+===================================================================
+--- xfc-4.6.0.orig/ui/xfc/gtk/messagedialog.cc
++++ xfc-4.6.0/ui/xfc/gtk/messagedialog.cc
+@@ -126,7 +126,7 @@ Gtk::MessageDialog::format_secondary_tex
+ 	va_start(args, message_format);
+ 	char* msg = g_strdup_vprintf(message_format, args);
+ 	va_end(args);
+-	gtk_message_dialog_format_secondary_text(gtk_message_dialog(), msg);
++	gtk_message_dialog_format_secondary_text(gtk_message_dialog(), "%s", msg);
+ 	g_free(msg);
+ }
+ 
+@@ -143,7 +143,7 @@ Gtk::MessageDialog::format_secondary_mar
+ 	va_start(args, message_format);
+ 	char* msg = g_strdup_vprintf(message_format, args);
+ 	va_end(args);
+-	gtk_message_dialog_format_secondary_markup(gtk_message_dialog(), msg);
++	gtk_message_dialog_format_secondary_markup(gtk_message_dialog(), "%s", msg);
+ 	g_free(msg);
+ }
+ 

@@ -1,0 +1,20 @@
+Index: xfc-4.6.0/docs/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/docs/CMakeLists.txt
++++ xfc-4.6.0/docs/CMakeLists.txt
+@@ -1,13 +1,13 @@
+ ## xfc docs directory
+ 
++SET( docs_dest share/doc/xfc-${XFC_VERSION}/docs)
++
+ ADD_SUBDIRECTORY( faq )
+ ADD_SUBDIRECTORY( howto ) 
+ ADD_SUBDIRECTORY( images )
+ ADD_SUBDIRECTORY( tutorial )
+ ADD_SUBDIRECTORY( reference )
+ 
+-SET( docs_dest share/doc/xfc-${XFC_VERSION}/docs)
+-
+ CONFIGURE_FILE( index.html.in ${CMAKE_CURRENT_SOURCE_DIR}/index.html @ONLY)
+ 
+ INSTALL( FILES

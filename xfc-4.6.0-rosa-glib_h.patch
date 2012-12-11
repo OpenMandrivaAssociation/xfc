@@ -1,0 +1,369 @@
+Index: xfc-4.6.0/core/xfc/glib/error.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/error.hh
++++ xfc-4.6.0/core/xfc/glib/error.hh
+@@ -38,7 +38,7 @@
+ #endif
+ 
+ #ifndef __G_ERROR_H__
+-#include <glib/gerror.h>
++#include <glib.h>
+ #endif
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/private/objectclass.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/private/objectclass.hh
++++ xfc-4.6.0/core/xfc/glib/private/objectclass.hh
+@@ -22,7 +22,7 @@
+ #define XFC_G_OBJECT_CLASS_HH
+ 
+ #ifndef __G_QUARK_H__
+-#include <glib/gquark.h>
++#include <glib.h>
+ #endif
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/quark.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/quark.hh
++++ xfc-4.6.0/core/xfc/glib/quark.hh
+@@ -33,7 +33,7 @@
+ #endif
+ 
+ #ifndef __G_QUARK_H__
+-#include <glib/gquark.h>
++#include <glib.h>
+ #endif
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/timeval.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/timeval.hh
++++ xfc-4.6.0/core/xfc/glib/timeval.hh
+@@ -30,7 +30,7 @@
+ #endif
+ 
+ #ifndef __G_TYPES_H__
+-#include <glib/gtypes.h>
++#include <glib.h>
+ #endif
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/unicode.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/unicode.hh
++++ xfc-4.6.0/core/xfc/glib/unicode.hh
+@@ -27,7 +27,7 @@
+ #endif
+ 
+ #ifndef __G_UNICODE_H__
+-#include <glib/gunicode.h>
++#include <glib.h>
+ #endif
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/date.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/date.cc
++++ xfc-4.6.0/core/xfc/glib/date.cc
+@@ -19,7 +19,7 @@
+  */
+ 
+ #include "date.hh"
+-#include <glib/gmem.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/glib/fileutils.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/fileutils.cc
++++ xfc-4.6.0/core/xfc/glib/fileutils.cc
+@@ -20,9 +20,7 @@
+ 
+ #include "fileutils.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gstrfuncs.h>
+-#include <glib/gmessages.h>
++#include <glib.h>
+ #include <xfc-config.h>
+ 
+ #ifdef HAVE_UNISTD_H
+Index: xfc-4.6.0/core/xfc/glib/keyfile.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/keyfile.cc
++++ xfc-4.6.0/core/xfc/glib/keyfile.cc
+@@ -20,9 +20,7 @@
+ 
+ #include "keyfile.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gmessages.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/glib/markup.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/markup.cc
++++ xfc-4.6.0/core/xfc/glib/markup.cc
+@@ -21,7 +21,7 @@
+ #include "markup.hh"
+ #include "quark.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
++#include <glib.h>
+ 
+ namespace Xfc {
+ 
+Index: xfc-4.6.0/core/xfc/glib/option.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/option.cc
++++ xfc-4.6.0/core/xfc/glib/option.cc
+@@ -20,8 +20,7 @@
+ 
+ #include "option.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ 
+ namespace Xfc {
+ 
+Index: xfc-4.6.0/core/xfc/glib/scanner.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/scanner.cc
++++ xfc-4.6.0/core/xfc/glib/scanner.cc
+@@ -19,9 +19,7 @@
+  */
+  
+ #include "scanner.hh"
+-#include <glib/gmessages.h>
+-#include <glib/gstrfuncs.h>
+-#include <glib/gmem.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/glib/shell.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/shell.cc
++++ xfc-4.6.0/core/xfc/glib/shell.cc
+@@ -20,9 +20,7 @@
+ 
+ #include "shell.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gmessages.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/glib/spawn.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/spawn.cc
++++ xfc-4.6.0/core/xfc/glib/spawn.cc
+@@ -20,9 +20,7 @@
+ 
+ #include "spawn.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gshell.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include <cstring>
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/utils.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/utils.cc
++++ xfc-4.6.0/core/xfc/glib/utils.cc
+@@ -20,8 +20,7 @@
+ 
+ #include "utils.hh"
+ #include "error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gfileutils.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/utfstring.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/utfstring.cc
++++ xfc-4.6.0/core/xfc/utfstring.cc
+@@ -20,9 +20,7 @@
+  
+ #include "utfstring.hh"
+ #include "glib/error.hh"
+-#include <glib/gconvert.h>
+-#include <glib/gmem.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include <iostream>
+ #include <cstring>
+ 
+Index: xfc-4.6.0/ui/xfc/gdk/spawn.cc
+===================================================================
+--- xfc-4.6.0.orig/ui/xfc/gdk/spawn.cc
++++ xfc-4.6.0/ui/xfc/gdk/spawn.cc
+@@ -21,10 +21,7 @@
+ #include "spawn.hh"
+ #include "screen.hh"
+ #include "xfc/glib/error.hh"
+-#include <glib/gmem.h>
+-#include <glib/gmessages.h>
+-#include <glib/gshell.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include <cstring>
+ 
+ extern char **environ;
+Index: xfc-4.6.0/core/xfc/glib/completion.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/completion.cc
++++ xfc-4.6.0/core/xfc/glib/completion.cc
+@@ -19,7 +19,7 @@
+  */
+ 
+ #include "completion.hh"
+-#include <glib/gmessages.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/glib/main.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/main.cc
++++ xfc-4.6.0/core/xfc/glib/main.cc
+@@ -20,7 +20,7 @@
+ 
+ #include "main.hh"
+ #include "thread.hh"
+-#include <glib/gmessages.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/core/xfc/glib/objectsignals.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/objectsignals.cc
++++ xfc-4.6.0/core/xfc/glib/objectsignals.cc
+@@ -22,7 +22,7 @@
+ #include "objectsignals.hh"
+ #include "quark.hh"
+ #include "private/objectclass.hh"
+-#include <glib/gmessages.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/examples/core/spawn/spawn.cc
+===================================================================
+--- xfc-4.6.0.orig/examples/core/spawn/spawn.cc
++++ xfc-4.6.0/examples/core/spawn/spawn.cc
+@@ -7,8 +7,7 @@
+ 
+ #include <xfc/glib/spawn.hh>
+ #include <xfc/glib/error.hh>
+-#include <glib/gmessages.h>
+-#include <glib/gutils.h>
++#include <glib.h>
+ #include <iostream>
+ 
+ using namespace Xfc;
+Index: xfc-4.6.0/core/xfc/glib/spawn.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/spawn.hh
++++ xfc-4.6.0/core/xfc/glib/spawn.hh
+@@ -31,7 +31,7 @@
+ #endif
+ 
+ #ifndef __G_SPAWN_H__
+-#include <glib/gspawn.h>
++#include <glib.h>
+ #endif
+ 
+ #ifndef _CPP_VECTOR
+Index: xfc-4.6.0/core/xfc/glib/timer.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/timer.hh
++++ xfc-4.6.0/core/xfc/glib/timer.hh
+@@ -29,7 +29,7 @@
+ #endif
+ 
+ #ifndef __G_TIMER_H__
+-#include <glib/gtimer.h>
++#include <glib.h>
+ #endif
+ 
+ namespace Xfc {
+Index: xfc-4.6.0/core/xfc/glib/timeval.cc
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/timeval.cc
++++ xfc-4.6.0/core/xfc/glib/timeval.cc
+@@ -19,8 +19,7 @@
+  */
+  
+ #include "timeval.hh"
+-#include <glib/gmain.h>
+-#include <glib/gtimer.h>
++#include <glib.h>
+ 
+ using namespace Xfc;
+ 
+Index: xfc-4.6.0/ui/xfc/gtk/stock.cc
+===================================================================
+--- xfc-4.6.0.orig/ui/xfc/gtk/stock.cc
++++ xfc-4.6.0/ui/xfc/gtk/stock.cc
+@@ -20,7 +20,7 @@
+ 
+ #include "stock.hh"
+ #include "accelgroup.hh"
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include <cstring>
+ 
+ using namespace Xfc;
+Index: xfc-4.6.0/core/xfc/glib/utils.hh
+===================================================================
+--- xfc-4.6.0.orig/core/xfc/glib/utils.hh
++++ xfc-4.6.0/core/xfc/glib/utils.hh
+@@ -27,7 +27,7 @@
+ #endif
+ 
+ #ifndef __G_UTILS_H__
+-#include <glib/gutils.h>
++#include <glib.h>
+ #endif
+ 
+ #ifndef _CPP_VECTOR
+Index: xfc-4.6.0/examples/core/iochannel/iochannel.cc
+===================================================================
+--- xfc-4.6.0.orig/examples/core/iochannel/iochannel.cc
++++ xfc-4.6.0/examples/core/iochannel/iochannel.cc
+@@ -8,7 +8,7 @@
+ #include <xfc/utfstring.hh>
+ #include <xfc/glib/error.hh>
+ #include <xfc/glib/iochannel.hh>
+-#include <glib/gutils.h>
++#include <glib.h>
+ #include <iostream>
+ 
+ using namespace Xfc;
+Index: xfc-4.6.0/examples/core/mainloop/mainloop.cc
+===================================================================
+--- xfc-4.6.0.orig/examples/core/mainloop/mainloop.cc
++++ xfc-4.6.0/examples/core/mainloop/mainloop.cc
+@@ -11,7 +11,6 @@
+ #include <xfc/glib/rand.hh>
+ #include <xfc/utfstring.hh>
+ #include <glib.h>
+-#include <glib/gutils.h>
+ #include <algorithm>
+ #include <iostream>
+ #include <vector>

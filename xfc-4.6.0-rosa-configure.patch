@@ -1,0 +1,37 @@
+Index: xfc-4.6.0/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/CMakeLists.txt
++++ xfc-4.6.0/CMakeLists.txt
+@@ -63,5 +63,5 @@ ADD_SUBDIRECTORY(demos)
+ ADD_SUBDIRECTORY(examples)
+ ADD_SUBDIRECTORY(docs)
+ 
+-CONFIGURE_FILE(xfc-config.h.in xfc-config.h)
++CONFIGURE_FILE(xfc-config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/xfc-config.h)
+ INCLUDE(CPack)
+Index: xfc-4.6.0/ui/xfc/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/ui/xfc/CMakeLists.txt
++++ xfc-4.6.0/ui/xfc/CMakeLists.txt
+@@ -15,7 +15,7 @@ ADD_LIBRARY( xfc_ui SHARED main.cc ${src
+ TARGET_LINK_LIBRARIES( xfc_ui xfc_core ${GTK_LIBRARIES} )
+ SET_TARGET_PROPERTIES( xfc_ui PROPERTIES VERSION ${XFC_VERSION} SOVERSION ${XFC_MAJOR_VERSION} )
+ 
+-CONFIGURE_FILE( config.h.in config.h )
++CONFIGURE_FILE( config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/config.h )
+ 
+ INSTALL(TARGETS xfc_ui
+     RUNTIME DESTINATION bin
+Index: xfc-4.6.0/docs/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/docs/CMakeLists.txt
++++ xfc-4.6.0/docs/CMakeLists.txt
+@@ -8,7 +8,7 @@ ADD_SUBDIRECTORY( reference )
+ 
+ SET( docs_dest share/doc/xfc-${XFC_VERSION}/docs)
+ 
+-CONFIGURE_FILE( index.html.in index.html @ONLY)
++CONFIGURE_FILE( index.html.in ${CMAKE_CURRENT_SOURCE_DIR}/index.html @ONLY)
+ 
+ INSTALL( FILES
+    index.html README 

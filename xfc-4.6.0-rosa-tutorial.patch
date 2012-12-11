@@ -1,0 +1,80 @@
+Index: xfc-4.6.0/examples/tutorial/chapter01/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter01/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter01/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter01 directory
+ 
+ INSTALL( FILES xfcapp.cc xfcapp.hh
+-   DESTINATION examples/tutorial/chapter01)
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter01)
+Index: xfc-4.6.0/examples/tutorial/chapter02/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter02/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter02/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter02 directory
+ 
+ INSTALL( FILES helloworld.cc helloworld.hh
+-   DESTINATION examples/tutorial/chapter02)
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter02)
+Index: xfc-4.6.0/examples/tutorial/chapter03/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter03/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter03/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter03 directory
+ 
+ INSTALL( FILES hellobuttons.cc hellobuttons.hh
+-   DESTINATION examples/tutorial/chapter03 )
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter03 )
+Index: xfc-4.6.0/examples/tutorial/chapter04/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter04/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter04/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter04 directory
+ 
+ INSTALL( FILES xfcapp.cc xfcapp.hh xfcapp.ui
+-    DESTINATION examples/tutorial/chapter04)
++    DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter04)
+Index: xfc-4.6.0/examples/tutorial/chapter06/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter06/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter06/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter06 directory
+ 
+ INSTALL( FILES xfcapp.cc xfcapp.hh xfcapp.ui statusbar.cc statusbar.hh
+-   DESTINATION examples/tutorial/chapter06)
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter06)
+Index: xfc-4.6.0/examples/tutorial/chapter07/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter07/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter07/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter07 directory
+ 
+ INSTALL( FILES xfcapp.cc xfcapp.hh xfcapp.ui statusbar.cc statusbar.hh
+-   DESTINATION examples/tutorial/chapter07)
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter07)
+Index: xfc-4.6.0/examples/tutorial/chapter08/src/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter08/src/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter08/src/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter08/src directory
+ 
+ INSTALL( FILES xfcapp.cc xfcapp.hh xfcapp.ui statusbar.cc statusbar.hh main.cc
+-   DESTINATION examples/tutorial/chapter08/src)
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter08/src)
+Index: xfc-4.6.0/examples/tutorial/chapter09/src/CMakeLists.txt
+===================================================================
+--- xfc-4.6.0.orig/examples/tutorial/chapter09/src/CMakeLists.txt
++++ xfc-4.6.0/examples/tutorial/chapter09/src/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ## xfc examples/tutorial/chapter09/src directory
+ 
+ INSTALL( FILES xfcapp.cc xfcapp.hh xfcapp.ui statusbar.cc statusbar.hh main.cc
+-   DESTINATION examples/tutorial/chapter09/src )
++   DESTINATION share/doc/xfc-${XFC_VERSION}/tutorial/chapter09/src )
