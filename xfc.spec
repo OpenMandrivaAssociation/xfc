@@ -1,19 +1,17 @@
 %define url_ver %(echo %{version} | cut -c 1-3)
 
 %define major 4
-#define apiversion %{version}
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
 Summary:	The Xfce foundation classes
 Name:		xfc
 Version:	4.6.0
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Development/C++
 Url:		http://xfc.xfce.org
-#Source0:	http://archive.xfce.org/src/bindings/%{name}/%{url_ver}/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{version}.tar.xz
+Source0:	http://archive.xfce.org/src/bindings/%{name}/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		xfc-4.6.0-rosa-configure.patch
 Patch1:		xfc-4.6.0-rosa-glib_h.patch
 Patch2:		xfc-4.6.0-rosa-format-security.patch
@@ -120,53 +118,7 @@ chrpath -d %{buildroot}%{_bindir}/xfc-demo
 %{_includedir}/xfce4/xfc
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-#%{_libdir}/xfce4/xfc/include/*.h
 
 %files doc
 %{_docdir}/%{name}-%{version}/docs
 %{_docdir}/%{name}-%{version}/tutorial
-
-
-%changelog
-* Mon Feb 25 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-7mdv2008.1
-+ Revision: 174776
-- fix packaging demo
-
-* Mon Feb 25 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-6mdv2008.1
-+ Revision: 174521
-- do not self-obsolete devel library
-- spec file clean
-
-* Sun Feb 03 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-5mdv2008.1
-+ Revision: 161878
-- rebuild
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-  + Thierry Vignaud <tvignaud@mandriva.com>
-    - kill re-definition of %%buildroot on Pixel's request
-
-* Sun Dec 16 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-4mdv2008.1
-+ Revision: 120499
-- fix packaging demo subpackage
-
-* Fri Nov 30 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-3mdv2008.1
-+ Revision: 114040
-- obsolete older name
-- do not package COPYING file
-- new license policy
-- use tarball name as a real name
-
-* Sat Sep 22 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-3mdv2008.0
-+ Revision: 92130
-- rebuild
-
-* Tue Jun 26 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 4.3.2-2mdv2008.0
-+ Revision: 44304
-- new devel library policy
-- provide patch 0 (gcc on x86_64 has some problems with cast unsigned char to unsigned int)
-- create subpackage demo
-- nuke rpath
-- Import xfce-xfc
-
