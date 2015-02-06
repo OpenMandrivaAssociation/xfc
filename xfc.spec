@@ -7,7 +7,7 @@
 Summary:	The Xfce foundation classes
 Name:		xfc
 Version:	4.6.0
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		Development/C++
 Url:		http://xfc.xfce.org
