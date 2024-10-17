@@ -10,7 +10,7 @@ Version:	4.6.0
 Release:	3
 License:	LGPLv2+
 Group:		Development/C++
-Url:		http://xfc.xfce.org
+Url:		https://xfc.xfce.org
 Source0:	http://archive.xfce.org/src/bindings/%{name}/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		xfc-4.6.0-rosa-configure.patch
 Patch1:		xfc-4.6.0-rosa-glib_h.patch
